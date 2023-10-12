@@ -50,7 +50,9 @@ This project serves as the backend for the Calendar Bot, a service that helps us
 
 ### Deploying to Vercel
 
-Endpoint will always begin with `https://calendar-bot-backend.vercel.app/`, then followed by the API endpoint.
+Every commit/push is automatically deployed to vercel. You can check deployment status at the top of the github repo as a colored dot.
+
+Endpoint will always begin with [https://calendar-bot-backend.vercel.app/](https://calendar-bot-backend.vercel.app/), then followed by the API endpoint.
 
 ## API Endpoints
 

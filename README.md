@@ -2,7 +2,7 @@
 
 ## Overview
 
-This project serves as the backend for the Calendar Bot, a service that helps users create events on Google Calendar. The backend is built using FastAPI and integrates with the GPT-3.5 Turbo model from OpenAI for natural language understanding.
+This project serves as the backend for the Calendar Bot, a service that helps users create events on Google Calendar. The backend is built using FastAPI and is hosted on Vercel.
 
 ## Installation
 
@@ -48,8 +48,14 @@ This project serves as the backend for the Calendar Bot, a service that helps us
 
 2. The server will start at `http://127.0.0.1:8000/`. You can test the API endpoints using Postman or any API testing tool.
 
+### Deploying to Vercel
+
+Endpoint will always begin with `https://calendar-bot-backend.vercel.app/`, then followed by the API endpoint.
+
 ## API Endpoints
 
-### `GET /api/hello`
+1. `GET /api/hello`
+   returns a simple JSON response to test if the server is running
 
-### `GET /api/convert`
+2. `GET /api/convert`
+   returns a JSON response with the converted event details

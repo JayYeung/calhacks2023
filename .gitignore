@@ -3,6 +3,7 @@
 # pycache
 utils/__pycache__/
 api/__pycache__/
+api/__pycache__
 
 # dependencies
 /node_modules

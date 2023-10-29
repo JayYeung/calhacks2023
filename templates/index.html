@@ -1,16 +1,17 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Tour Guide in Paris</title>
+        <title>Steps</title>
     </head>
     <body>
-        {% for i, step in enumerate(steps) %}
-        <p>{{ step }}</p>
-        {% if i < 10 %}
-        <img
-            src="{{ '/static/images/' + i|string + '.png' }}"
-            alt="Image for step {{ i + 1 }}"
-        />
-        {% endif %} {% endfor %}
+        <h1>Steps:</h1>
+        <ul>
+            {% for item in zipped_steps_images %}
+            <li>
+                {{ item[0] }}
+                <img src="{{ item[1] }}" alt="Step {{ loop.index }}" />
+            </li>
+            {% endfor %}
+        </ul>
     </body>
 </html>

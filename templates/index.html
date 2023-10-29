@@ -1,15 +1,24 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+    <link rel="stylesheet" href="/static/styles.css" />
     <head>
-        <title>Steps</title>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>WikiHow</title>
     </head>
+
     <body>
-        <h1>Steps:</h1>
+        <form action="/query" method="get">
+            <input type="text" name="query" placeholder="Search..." />
+            <input type="submit" value="Search" />
+        </form>
+
+        <h1>{{ title or 'WikiHow' }}:</h1>
         <ul>
             {% for item in zipped_steps_images %}
             <li>
                 {{ item[0] }}
-                <img src="{{ item[1] }}" alt="Step {{ loop.index }}" />
+                <img src="{{ item[1] }}" alt="Image for {{ item[0] }}" />
             </li>
             {% endfor %}
         </ul>

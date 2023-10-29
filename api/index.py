@@ -7,9 +7,7 @@ from utils.get_gpt_response import get_gpt_response
 from utils.description_to_image import description_to_image
 
 app = FastAPI()
-
 app.mount("/static", StaticFiles(directory="static"), name="static")
-
 templates = Jinja2Templates(directory="templates")
 
 @app.get("/", response_class=HTMLResponse)
@@ -20,14 +18,24 @@ async def root(request: Request):
 async def read_item(request: Request, query: str):
     text = get_gpt_response(query)
     
-    print(text)
-    
-    for idx, description in enumerate(text.split('<image>')[1::2]):
-        description_to_image(description, idx)
-        print('description', description)
+    steps = text.split(':')
+    title = steps[0].split('\n')[0]
 
-    steps = text.split('<image>')[::2]  # Text steps
-    images = [f"static/{idx}.png" for idx, _ in enumerate(text.split('<image>')[1::2])]  # Image paths
-    zipped_steps_images = list(zip(steps, images))
-    print(zipped_steps_images)
-    return templates.TemplateResponse("index.html", {"request": request, "zipped_steps_images": zipped_steps_images})
+    instructions = []
+    descriptions = []
+
+    for idx, step in enumerate(steps[1:]):
+        pair = step.split("Step")[0].split('<image>')
+        instructions.append(f'Step {idx+1}: {pair[0].strip()}')
+        descriptions.append(pair[1].strip())
+        description_to_image(descriptions[-1], idx)
+
+    images = [f"static/{idx}.png" for idx, _ in enumerate(descriptions)]
+    
+    zipped_steps_images = list(zip(instructions, images))
+    
+    print(title)
+    print(descriptions)
+    print()
+    
+    return templates.TemplateResponse("index.html", {"request": request, "title": title, "zipped_steps_images": zipped_steps_images})

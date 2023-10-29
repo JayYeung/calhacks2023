@@ -13,8 +13,11 @@ app.mount("/static", StaticFiles(directory="static"), name="static")
 templates = Jinja2Templates(directory="templates")
 
 @app.get("/", response_class=HTMLResponse)
-async def read_item(request: Request):
-    query = 'how to get to school'
+async def root(request: Request): 
+    return templates.TemplateResponse("search.html", {"request": request})
+
+@app.get("/query", response_class=HTMLResponse)
+async def read_item(request: Request, query: str):
     text = get_gpt_response(query)
     
     print(text)

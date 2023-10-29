@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Tour Guide in Paris</title>
+    </head>
+    <body>
+        {% for i, step in enumerate(steps) %}
+        <p>{{ step }}</p>
+        {% if i < 10 %}
+        <img
+            src="{{ '/static/images/' + i|string + '.png' }}"
+            alt="Image for step {{ i + 1 }}"
+        />
+        {% endif %} {% endfor %}
+    </body>
+</html>

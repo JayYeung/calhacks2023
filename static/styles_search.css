@@ -1,0 +1,77 @@
+/* BASE STYLES */
+body {
+    font-family: 'Arial', sans-serif; /* You can use a custom font if you prefer */
+    background-color: #e7f2e9; /* A similar greenish background color */
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    color: #333;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* NAVBAR */
+#navbar {
+    display: flex;
+    justify-content: flex-end; /* Updated this property */
+    padding: 1em 5%;
+    background-color: #d9e8db; /* Slightly darker shade of green for contrast */
+}
+
+#navbar a {
+    margin: 0 1em;
+}
+
+#navbar button {
+    padding: 0.5em 1em;
+    background-color: #a9cba5;
+    border: none;
+    border-radius: 5px;
+}
+
+/* SEARCH AND SUBMIT */
+#main-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 60vh; /* Takes up 60% of the viewport height */
+}
+
+#query {
+    padding: 0.5em;
+    font-size: 1em;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+#submit-btn {
+    margin-top: 1em;
+    padding: 0.5em 1em;
+    background-color: #a9cba5;
+    border: none;
+    border-radius: 5px;
+}
+
+/*FOOTER*/
+footer {
+    background-color: #d9e8db;
+    padding: 1em 5%;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    padding: 20px 0; 
+    height: 40px;  /* Adjust this value according to your preference */
+}
+
+footer p {
+    margin: 0;
+}

@@ -1,12 +1,39 @@
 <!DOCTYPE html>
-<html>
+<link rel="stylesheet" type="text/css" href="static/styles_search.css" />
+<html lang="en">
     <head>
-        <title>Steps</title>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Your Page Title</title>
     </head>
     <body>
-        <form action="/query" method="get">
-            <input type="text" name="query" placeholder="How to:" />
-            <input type="submit" value="Submit" />
-        </form>
+        <!-- Navigation Bar -->
+        <div id="navbar">
+            <a href="home.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="development.html">Development</a>
+        </div>
+
+        <!-- Main Content -->
+        <div id="main-content">
+            <form action="/query" method="get">
+                <input
+                    type="text"
+                    id="query"
+                    name="query"
+                    placeholder="How to:"
+                />
+                <input type="submit" value="Submit" />
+            </form>
+        </div>
+
+        <!-- Footer -->
+        <footer>
+            <div class="container">
+                <p>How To Dummies</p>
+                <p>&copy; 2023 Your Company Name. All rights reserved.</p>
+                <!-- Add other footer content here -->
+            </div>
+        </footer>
     </body>
 </html>

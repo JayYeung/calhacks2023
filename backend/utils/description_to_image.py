@@ -10,7 +10,8 @@ from time import sleep
 together.api_key = 'dd6fc37975f3b9e88b25fa63b1ddd22ad6043a4449c39d061ffc6c8117a85f33'
 
 @cache
-def description_to_image(description: str, index: int):
+def description_to_image(description: str):
+    print(description)
     try: 
         model_list = together.Models.list()
 
@@ -24,11 +25,8 @@ def description_to_image(description: str, index: int):
         )
         
         base64_string = output['output']['choices'][0]['image_base64']
-        image_data = base64.b64decode(base64_string)
-        image_buffer = BytesIO(image_data)
-        image = Image.open(image_buffer)
-        image.save(f'static/{index}.png')
+        return base64_string
     except Exception as e:
         print(e)
         sleep(3)
-        description_to_image(description, index)
+        return description_to_image(description)
